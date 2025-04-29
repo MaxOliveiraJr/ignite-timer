@@ -1,0 +1,11 @@
+import { ButtonContainer } from "./Button.styles.ts.Button.tsx.exemple";
+import { ButtonVariante } from "./Button.styles.ts.Button.tsx.exemple";
+interface ButtonProps {
+    variant: ButtonVariante;
+}
+
+export function Button({ variant }: ButtonProps) {
+    return (
+        <ButtonContainer variant={variant} >Enviar</ButtonContainer>
+    )
+}
