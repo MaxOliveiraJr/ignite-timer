@@ -1,0 +1,44 @@
+import { createContext, useContext, useState } from "react"
+
+export const CyclesContext = createContext({} as any)
+
+function NewCicleForm() {
+
+    const { activeCycle, setActiveCycle } = useContext(CyclesContext);
+
+
+    return (
+        <>
+            <h1>NewCycleForm:  {activeCycle}
+                <button onClick={() => { setActiveCycle((state) => state + 1) }}>Alterar</button>
+            </h1>
+        </>
+    )
+}
+
+function CountDown() {
+
+    const { activeCycle } = useContext(CyclesContext);
+
+    return (
+        <>
+            <h1>CountDown {activeCycle}</h1>
+        </>
+    )
+}
+
+export function Home() {
+
+    const [activeCycle, setActiveCycle] = useState(2);
+
+
+
+    return (
+
+        <CyclesContext.Provider value={{ activeCycle, setActiveCycle }}>
+            <NewCicleForm />
+            <CountDown />
+        </CyclesContext.Provider>
+
+    )
+}
